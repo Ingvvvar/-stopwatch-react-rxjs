@@ -33,6 +33,7 @@ export const App: React.FC = () => {
       setTimeOn(true);
     } else {
       setTime(0);
+      setTimeOn(false);
     }
   };
 
@@ -49,7 +50,6 @@ export const App: React.FC = () => {
 
   const handleReset = () => {
     setTime(0);
-    setTimeOn(false);
   };
 
   return (
