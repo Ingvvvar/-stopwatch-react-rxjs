@@ -4,9 +4,15 @@ interface Props {
   start: () => void;
   wait: () => void;
   reset: () => void;
+  status: boolean;
 }
 
-export const Btn: React.FC<Props> = ({ start, wait, reset }) => {
+export const Btn: React.FC<Props> = ({
+  start,
+  wait,
+  reset,
+  status,
+}) => {
   return (
     <div className="d-flex justify-content-center">
       <button
@@ -14,7 +20,7 @@ export const Btn: React.FC<Props> = ({ start, wait, reset }) => {
         type="button"
         onClick={start}
       >
-        Start / Stop
+        {status ? 'Start' : 'Stop'}
       </button>
       <button
         className="btn btn-primary mx-1"

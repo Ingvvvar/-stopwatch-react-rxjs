@@ -10,6 +10,7 @@ import { Display } from './components/Display';
 export const App: React.FC = () => {
   const [time, setTime] = useState(0);
   const [timeOn, setTimeOn] = useState(false);
+  const [status, setStatus] = useState(true);
 
   useEffect(() => {
     const unsubscribe = new Subject();
@@ -31,9 +32,11 @@ export const App: React.FC = () => {
   const handleStartStop = () => {
     if (!timeOn) {
       setTimeOn(true);
+      setStatus(prevState => !prevState);
     } else {
       setTime(0);
       setTimeOn(false);
+      setStatus(prevState => !prevState);
     }
   };
 
@@ -59,6 +62,7 @@ export const App: React.FC = () => {
         start={handleStartStop}
         wait={handleWait}
         reset={handleReset}
+        status={status}
       />
     </>
   );
